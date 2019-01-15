@@ -1,6 +1,13 @@
 [[package]]
 name = "lantern"
 version = "0.1.0"
+dependencies = [
+ "log 0.1.0",
+]
+
+[[package]]
+name = "log"
+version = "0.1.0"
 
 [[package]]
 name = "sandbox"

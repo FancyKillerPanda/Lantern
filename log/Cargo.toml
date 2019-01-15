@@ -1,8 +1,7 @@
 [package]
-name = "lantern"
+name = "log"
 version = "0.1.0"
 authors = ["Sahil Iyer <iyersahil12@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-log = { path = "../log" }

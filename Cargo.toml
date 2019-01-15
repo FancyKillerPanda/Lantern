@@ -2,5 +2,6 @@
 
 members = [
 	"lantern",
+	"log",
 	"sandbox",
 ]
