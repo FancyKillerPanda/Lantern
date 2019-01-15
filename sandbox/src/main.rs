@@ -1,3 +1,21 @@
+use lantern;
+use lantern::application::Application;
+
+
+struct Sandbox {
+}
+
+impl Sandbox {
+    fn new() -> Self {
+        Sandbox {}
+    }
+}
+
+impl Application for Sandbox {
+}
+
+
 fn main() {
-    println!("Hello, world!");
+    let sandbox_app = Sandbox::new();
+    sandbox_app.run();
 }
