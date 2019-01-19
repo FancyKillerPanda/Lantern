@@ -1,12 +1,24 @@
-enum EventType {
+#[derive(Clone, Copy, PartialEq)]
+pub struct Size(pub u32, pub u32);
+
+#[derive(Clone, Copy, PartialEq)]
+pub struct Position(pub u32, pub u32);
+
+#[derive(Clone, Copy, PartialEq)]
+pub struct Offset(pub u32, pub u32);
+
+
+#[derive(Clone, Copy, PartialEq)]
+pub enum EventType {
 	None,
-	WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
+	WindowClose, WindowResize(Size), WindowFocus, WindowLostFocus, WindowMoved(Position),
 	AppTick, AppUpdate, AppRender,
 	KeyPressed, KeyReleased,
-	MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
+	MouseButtonPressed, MouseButtonReleased, MouseMoved(Position), MouseScrolled(Offset),
 }
 
-enum EventCategory {
+#[derive(Clone, Copy, PartialEq)]
+pub enum EventCategory {
 	None,
 	Application = 1 << 0,
 	Input = 1 << 1,
@@ -15,13 +27,16 @@ enum EventCategory {
 	MouseButton = 1 << 4,
 }
 
-trait Event {
+
+pub trait Event {
 	fn get_event_type(&self) -> EventType;
-	fn get_name(&self) -> &String;
 	fn get_category_flags(&self) -> i8;
 
-	fn to_string(&self) -> &String {
-		self.get_name()
+	fn get_handled(&self) -> bool;
+	fn set_handled(&mut self, state: bool);
+
+	fn get_name(&self) -> String {
+		String::from(stringify!(self.get_event_type()))
 	}
 
 	fn is_in_category(&self, category: EventCategory) -> bool {
@@ -29,18 +44,25 @@ trait Event {
 	}
 }
 
-struct EventDispatcher<'a> {
-	event: &'a mut Event,
+
+pub struct EventDispatcher {
+	event: Box<dyn Event>,
 }
 
-impl<'a> EventDispatcher<'a> {
-	pub fn new(event: &'a mut Event) -> Self {
+impl EventDispatcher {
+	pub fn new(event: Box<dyn Event>) -> Self {
 		EventDispatcher {
 			event,
 		}
 	}
 
-	pub fn dispatch<T>(func: fn(&mut T) -> bool) -> bool {
-		if (self.event.get_event_type() == )
+	pub fn dispatch(&mut self, event: Box<dyn Event>, func: fn(&mut Box<dyn Event>) -> bool) -> bool {
+		if self.event.get_event_type() == event.get_event_type() {
+			let result = func(&mut self.event);
+			self.event.set_handled(result);
+			return true;
+		}
+
+		false
 	}
 }
