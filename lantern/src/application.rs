@@ -21,5 +21,16 @@ pub trait Application {
 		println!("");
 		log::trace!("{}", key_pressed_event.to_string());
 		log::trace!("{}", key_released_event.to_string());
+	
+		let mouse_moved_event = events::MouseMovedEvent::new(events::Position(400, 300));
+		let mouse_scrolled_event = events::MouseScrolledEvent::new(events::Offset(0, 1));
+		let mouse_btn_pressed_event = events::MouseButtonPressedEvent::new(1);
+		let mouse_btn_released_event = events::MouseButtonReleasedEvent::new(1);
+
+		println!("");
+		log::trace!("{}", mouse_moved_event.to_string());
+		log::trace!("{}", mouse_scrolled_event.to_string());
+		log::trace!("{}", mouse_btn_pressed_event.to_string());
+		log::trace!("{}", mouse_btn_released_event.to_string());
 	}
 }
