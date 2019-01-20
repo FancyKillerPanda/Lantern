@@ -1,14 +1,19 @@
-#[derive(Clone, Copy, PartialEq)]
+use std::fmt;
+
+pub mod application_event;
+pub use application_event::*;
+
+#[derive(Clone, Copy, PartialEq, Debug)]
 pub struct Size(pub u32, pub u32);
 
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Clone, Copy, PartialEq, Debug)]
 pub struct Position(pub u32, pub u32);
 
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Clone, Copy, PartialEq, Debug)]
 pub struct Offset(pub u32, pub u32);
 
 
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Clone, Copy, PartialEq, Debug)]
 pub enum EventType {
 	None,
 	WindowClose, WindowResize(Size), WindowFocus, WindowLostFocus, WindowMoved(Position),
@@ -16,6 +21,13 @@ pub enum EventType {
 	KeyPressed, KeyReleased,
 	MouseButtonPressed, MouseButtonReleased, MouseMoved(Position), MouseScrolled(Offset),
 }
+
+impl fmt::Display for EventType {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		write!(f, "{:?}", self)
+	}
+}
+
 
 #[derive(Clone, Copy, PartialEq)]
 pub enum EventCategory {
@@ -36,7 +48,9 @@ pub trait Event {
 	fn set_handled(&mut self, state: bool);
 
 	fn get_name(&self) -> String {
-		String::from(stringify!(self.get_event_type()))
+		let mut s = String::from(self.get_event_type().to_string());
+		s.push_str("Event");
+		s
 	}
 
 	fn is_in_category(&self, category: EventCategory) -> bool {
