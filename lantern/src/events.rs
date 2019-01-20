@@ -2,6 +2,8 @@ use std::fmt;
 
 pub mod application_event;
 pub use application_event::*;
+pub mod key_event;
+pub use key_event::*;
 
 #[derive(Clone, Copy, PartialEq, Debug)]
 pub struct Size(pub u32, pub u32);
