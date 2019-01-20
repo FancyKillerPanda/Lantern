@@ -20,10 +20,10 @@ pub struct Offset(pub u32, pub u32);
 #[derive(Clone, Copy, PartialEq, Debug)]
 pub enum EventType {
 	None,
-	WindowClose, WindowResize(Size), WindowFocus, WindowLostFocus, WindowMoved(Position),
+	WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 	AppTick, AppUpdate, AppRender,
 	KeyPressed, KeyReleased,
-	MouseButtonPressed, MouseButtonReleased, MouseMoved(Position), MouseScrolled(Offset),
+	MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
 }
 
 impl fmt::Display for EventType {

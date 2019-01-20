@@ -21,7 +21,7 @@ impl WindowResizeEvent {
 
 impl Event for WindowResizeEvent {
 	fn get_event_type(&self) -> EventType {
-		EventType::WindowResize(self.size)
+		EventType::WindowResize
 	}
 
 	fn get_category_flags(&self) -> i8 {

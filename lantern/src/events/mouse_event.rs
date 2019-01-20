@@ -21,7 +21,7 @@ impl MouseMovedEvent {
 
 impl Event for MouseMovedEvent {
 	fn get_event_type(&self) -> EventType {
-		EventType::MouseMoved(self.position)
+		EventType::MouseMoved
 	}
 
 	fn get_handled(&self) -> bool {
@@ -64,7 +64,7 @@ impl MouseScrolledEvent {
 
 impl Event for MouseScrolledEvent {
 	fn get_event_type(&self) -> EventType {
-		EventType::MouseScrolled(self.offset)
+		EventType::MouseScrolled
 	}
 
 	fn get_handled(&self) -> bool {
