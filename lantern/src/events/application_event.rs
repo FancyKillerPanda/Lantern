@@ -1,12 +1,16 @@
 use std::string::ToString;
 use super::{ Event, EventType, EventCategory, Size };
 
+/// Event when the window is resized.
+/// 
+/// Holds the new size of the window.
 pub struct WindowResizeEvent {
 	handled: bool,
 	size: Size,
 }
 
 impl WindowResizeEvent {
+	/// Creates a new WindowResizeEvent.
 	pub fn new(size: Size) -> Self {
 		WindowResizeEvent {
 			handled: false,
@@ -14,6 +18,7 @@ impl WindowResizeEvent {
 		}
 	}
 
+	/// Returns the new size of the window.
 	pub fn get_size(&self) -> Size {
 		self.size
 	}
@@ -44,11 +49,13 @@ impl ToString for WindowResizeEvent {
 }
 
 
+/// Event when the window is closed.
 pub struct WindowClosedEvent {
 	handled: bool,
 }
 
 impl WindowClosedEvent {
+	/// Creates a new WindowClosedEvent.
 	pub fn new() -> Self {
 		WindowClosedEvent {
 			handled: false,
@@ -81,11 +88,13 @@ impl ToString for WindowClosedEvent {
 }
 
 
+/// Event for when the app ticks.
 pub struct AppTickEvent {
 	handled: bool,
 }
 
 impl AppTickEvent {
+	/// Creates a new AppTickEvent.
 	pub fn new() -> Self {
 		AppTickEvent {
 			handled: false,
@@ -118,11 +127,13 @@ impl ToString for AppTickEvent {
 }
 
 
+/// Event for when the app updates.
 pub struct AppUpdateEvent {
 	handled: bool,
 }
 
 impl AppUpdateEvent {
+	/// Creates a new AppUpdateEvent.
 	pub fn new() -> Self {
 		AppUpdateEvent {
 			handled: false,
@@ -155,11 +166,13 @@ impl ToString for AppUpdateEvent {
 }
 
 
+/// Event for when rendering occurs.
 pub struct AppRenderEvent {
 	handled: bool,
 }
 
 impl AppRenderEvent {
+	/// Creates a new AppRenderEvent.
 	pub fn new() -> Self {
 		AppRenderEvent {
 			handled: false,

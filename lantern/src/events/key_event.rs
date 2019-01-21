@@ -1,6 +1,10 @@
 use std::string::ToString;
 use super::{ Event, EventType, EventCategory };
 
+/// Event for a key press.
+/// 
+/// Keycode is the key that was pressed.
+/// Repeat count is how many times the key repeated.
 pub struct KeyPressedEvent {
 	handled: bool,
 	keycode: i32,
@@ -8,6 +12,7 @@ pub struct KeyPressedEvent {
 }
 
 impl KeyPressedEvent {
+	/// Creates a new KeyPressedEvent.
 	pub fn new(keycode: i32, repeat_count: i32) -> Self {
 		KeyPressedEvent {
 			handled: false,
@@ -16,10 +21,12 @@ impl KeyPressedEvent {
 		}
 	}
 
+	/// Returns the repeat count of the event.
 	pub fn get_repeat_count(&self) -> i32 {
 		self.repeat_count
 	}
 
+	/// Returns the keycode of the event.
 	pub fn get_keycode(&self) -> i32 {
 		self.keycode
 	}
@@ -50,12 +57,16 @@ impl ToString for KeyPressedEvent {
 }
 
 
+/// Event for a key release.
+/// 
+/// Keycode is the key that was pressed.
 pub struct KeyReleasedEvent {
 	handled: bool,
 	keycode: i32,
 }
 
 impl KeyReleasedEvent {
+	/// Creates a new KeyReleasedEvent.
 	pub fn new(keycode: i32) -> Self {
 		KeyReleasedEvent {
 			handled: false,
@@ -63,6 +74,7 @@ impl KeyReleasedEvent {
 		}
 	}
 
+	/// Gets the keycode of the event.
 	pub fn get_keycode(&self) -> i32 {
 		self.keycode
 	}
