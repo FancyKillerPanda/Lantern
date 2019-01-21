@@ -52,7 +52,7 @@ impl fmt::Display for EventType {
 #[derive(Clone, Copy, PartialEq)]
 pub enum EventCategory {
 	None,
-	Application = 1 << 0,
+	Application = 1,
 	Input = 1 << 1,
 	Keyboard = 1 << 2,
 	Mouse = 1 << 3,
@@ -77,9 +77,7 @@ pub trait Event {
 
 	/// Gets the name of the event
 	fn get_name(&self) -> String {
-		let mut s = String::from(self.get_event_type().to_string());
-		s.push_str("Event");
-		s
+		format!("{}Event", self.get_event_type().to_string())
 	}
 
 	/// Checks if a given event is in a categoy

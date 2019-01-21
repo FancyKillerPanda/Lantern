@@ -52,7 +52,7 @@ impl Event for KeyPressedEvent {
 
 impl ToString for KeyPressedEvent {
 	fn to_string(&self) -> String {
-		String::from(format!("KeyPressedEvent: {} ({} repeats)", self.keycode, self.repeat_count))
+		format!("KeyPressedEvent: {} ({} repeats)", self.keycode, self.repeat_count)
 	}
 }
 
@@ -100,6 +100,6 @@ impl Event for KeyReleasedEvent {
 
 impl ToString for KeyReleasedEvent {
 	fn to_string(&self) -> String {
-		String::from(format!("KeyReleasedEvent: {}", self.keycode))
+		format!("KeyReleasedEvent: {}", self.keycode)
 	}
 }

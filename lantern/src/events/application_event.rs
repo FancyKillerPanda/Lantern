@@ -44,12 +44,13 @@ impl Event for WindowResizeEvent {
 
 impl ToString for WindowResizeEvent {
 	fn to_string(&self) -> String {
-		String::from(format!("WindowResizeEvent: ({}, {})", self.size.0, self.size.1))
+		format!("WindowResizeEvent: ({}, {})", self.size.0, self.size.1)
 	}
 }
 
 
 /// Event when the window is closed.
+#[derive(Default)]
 pub struct WindowClosedEvent {
 	handled: bool,
 }
@@ -83,12 +84,13 @@ impl Event for WindowClosedEvent {
 
 impl ToString for WindowClosedEvent {
 	fn to_string(&self) -> String {
-		String::from(self.get_name())
+		self.get_name()
 	}
 }
 
 
 /// Event for when the app ticks.
+#[derive(Default)]
 pub struct AppTickEvent {
 	handled: bool,
 }
@@ -122,12 +124,13 @@ impl Event for AppTickEvent {
 
 impl ToString for AppTickEvent {
 	fn to_string(&self) -> String {
-		String::from(self.get_name())
+		self.get_name()
 	}
 }
 
 
 /// Event for when the app updates.
+#[derive(Default)]
 pub struct AppUpdateEvent {
 	handled: bool,
 }
@@ -161,12 +164,13 @@ impl Event for AppUpdateEvent {
 
 impl ToString for AppUpdateEvent {
 	fn to_string(&self) -> String {
-		String::from(self.get_name())
+		self.get_name()
 	}
 }
 
 
 /// Event for when rendering occurs.
+#[derive(Default)]
 pub struct AppRenderEvent {
 	handled: bool,
 }
@@ -200,6 +204,6 @@ impl Event for AppRenderEvent {
 
 impl ToString for AppRenderEvent {
 	fn to_string(&self) -> String {
-		String::from(self.get_name())
+		self.get_name()
 	}
 }

@@ -28,7 +28,7 @@ pub trait Application {
 		let key_released_event = events::KeyReleasedEvent::new(1);
 
 		// Logs the Key events
-		println!("");
+		println!();
 		log::trace!("{}", key_pressed_event.to_string());
 		log::trace!("{}", key_released_event.to_string());
 	
@@ -39,7 +39,7 @@ pub trait Application {
 		let mouse_btn_released_event = events::MouseButtonReleasedEvent::new(1);
 
 		// Logs the Mouse events
-		println!("");
+		println!();
 		log::trace!("{}", mouse_moved_event.to_string());
 		log::trace!("{}", mouse_scrolled_event.to_string());
 		log::trace!("{}", mouse_btn_pressed_event.to_string());

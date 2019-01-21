@@ -44,7 +44,7 @@ impl Event for MouseMovedEvent {
 
 impl ToString for MouseMovedEvent {
 	fn to_string(&self) -> String {
-		String::from(format!("MouseMovedEvent: ({}, {})", self.position.0, self.position.1))
+		format!("MouseMovedEvent: ({}, {})", self.position.0, self.position.1)
 	}
 }
 
@@ -92,7 +92,7 @@ impl Event for MouseScrolledEvent {
 
 impl ToString for MouseScrolledEvent {
 	fn to_string(&self) -> String {
-		String::from(format!("MouseScrolledEvent: ({}, {})", self.offset.0, self.offset.1))
+		format!("MouseScrolledEvent: ({}, {})", self.offset.0, self.offset.1)
 	}
 }
 
@@ -138,7 +138,7 @@ impl Event for MouseButtonPressedEvent {
 
 impl ToString for MouseButtonPressedEvent {
 	fn to_string(&self) -> String {
-		String::from(format!("MouseButtonPressedEvent: {}", self.button))
+		format!("MouseButtonPressedEvent: {}", self.button)
 	}
 }
 
@@ -184,6 +184,6 @@ impl Event for MouseButtonReleasedEvent {
 
 impl ToString for MouseButtonReleasedEvent {
 	fn to_string(&self) -> String {
-		String::from(format!("MouseButtonReleasedEvent: {}", self.button))
+		format!("MouseButtonReleasedEvent: {}", self.button)
 	}
 }
