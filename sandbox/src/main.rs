@@ -1,8 +1,6 @@
 use lantern;
 use lantern::application::Application;
 use lantern::window_base::{ Window, WindowProps };
-use log;
-
 
 struct Sandbox {
     running: bool,
@@ -13,7 +11,7 @@ impl Sandbox {
     fn new() -> Self {
         let mut s = Sandbox {
             running: true,
-            window: Window::new(WindowProps::new_def()),
+            window: Window::new(WindowProps::new()),
         };
 
         s.init();

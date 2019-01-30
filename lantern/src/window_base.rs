@@ -10,14 +10,20 @@ pub struct WindowProps {
 }
 
 impl WindowProps {
-	pub fn new_def() -> Self {
-		WindowProps::new("Lantern Engine!", Size(960, 540))
+	pub fn new() -> Self {
+		WindowProps {
+			title: "Lantern Engine!",
+			size: Size(960, 540),
+		}
 	}
 
-	pub fn new(title: &'static str, size: Size) -> Self {
-		WindowProps {
-			title,
-			size,
-		}
+	pub fn title(mut self, t: &'static str) -> Self {
+		self.title = t;
+		self
+	}
+
+	pub fn size(mut self, s: Size) -> Self {
+		self.size = s;
+		self
 	}
 }
