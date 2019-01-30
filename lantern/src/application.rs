@@ -4,7 +4,7 @@ use crate::window_base::Window;
 /// 
 /// Application should be implemented by the client's main struct.
 pub trait Application {
-	/// Initialise the application
+	/// Initialises the application
 	fn init(&mut self) {
 		gl::load_with(|s| self.get_window().window.get_proc_address(s));
 	}
