@@ -7,25 +7,6 @@ pub use key_event::*;
 pub mod mouse_event;
 pub use mouse_event::*;
 
-/// Represents a ize
-/// 
-/// The two fields are a `width` and a `height`
-#[derive(Clone, Copy, PartialEq, Debug)]
-pub struct Size(pub u32, pub u32);
-
-/// Represents a position
-/// 
-/// The two fields are an `x` and a `y`
-#[derive(Clone, Copy, PartialEq, Debug)]
-pub struct Position(pub u32, pub u32);
-
-/// Represents an offset
-/// 
-/// The two fields are an `xOffset` and a `yOffset`
-#[derive(Clone, Copy, PartialEq, Debug)]
-pub struct Offset(pub u32, pub u32);
-
-
 /// Represents a type of Event
 #[derive(Clone, Copy, PartialEq, Debug)]
 pub enum EventType {

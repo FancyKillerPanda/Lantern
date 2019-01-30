@@ -1,5 +1,6 @@
 use std::string::ToString;
-use super::{ Event, EventType, EventCategory, Position, Offset };
+use super::{ Event, EventType, EventCategory };
+use crate::{ Position, Offset };
 
 /// Event for when the mouse moves.String
 /// 

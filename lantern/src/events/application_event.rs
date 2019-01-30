@@ -1,5 +1,6 @@
 use std::string::ToString;
-use super::{ Event, EventType, EventCategory, Size };
+use super::{ Event, EventType, EventCategory };
+use crate::Size;
 
 /// Event when the window is resized.
 /// 
